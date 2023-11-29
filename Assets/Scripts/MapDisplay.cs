@@ -7,6 +7,7 @@ public class MapDisplay : MonoBehaviour
     int width = 1000;
     int height = 1000;
     public int seed = 10;
+    public float[,] noiseArray = null;
     public void Start()
     {
         GenerateTex();
@@ -14,9 +15,9 @@ public class MapDisplay : MonoBehaviour
 
     public void GenerateTex()
     {
-        float[,] array = new float[width, height];
-        array = Noise.GenerateNoiseMap(width, height, seed);
-        SetTerrainTexture(width, height, array);
+        noiseArray = new float[width, height];
+        noiseArray = Noise.GenerateNoiseMap(width, height, seed);
+        SetTerrainTexture(width, height, noiseArray);
 
     }
 
