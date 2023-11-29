@@ -8,9 +8,16 @@ public class Noise
     /// 
     /// </summary>
     /// <returns></returns>
-    public float[,] GenerateNoiseMap()
+    public static float[,] GenerateNoiseMap(int width, int height)
     {
-        float[,] array = new float[0,0];
+        float[,] array = new float[width,height];
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                array[i, j] = Mathf.PerlinNoise(i, j);
+            }
+        }
         return array;
     }
 }
